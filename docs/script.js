@@ -7,16 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const API_KEY = "3c9c7f1c48ceac45e8186a1d79b3062e";
 
-  input.addEventListener("keydown", (e) => {
+  input.addEventListener("keydown", async (e) => {
     const text = input.value.trim();
     if (e.key === "Enter") {
       if (!text) return;
-      console.log(text);
+      try {
+        const weatherResponse = await fetchWeatherData(text);
+        console.log(weatherResponse);
+      } catch (error) {}
     }
   });
 
-  function fetchWeatherData(data) {
-    const url = `const url = https://api.openweathermap.org/data/2.5/weather?q=${data}&units=metric&appid=${API_KEY};`;
+  async function fetchWeatherData(data) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${data}&units=metric&appid=${API_KEY}`;
+    const weather_data = await fetch(url);
+    const final_data = weather_data.json();
+    return final_data;
   }
 
   function displayWeatherData(data) {
