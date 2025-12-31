@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const image = weather[0].icon;
     const img = weather_info.querySelector("img");
     img.src = `https://openweathermap.org/img/wn/${image}@2x.png`;
+    img.classList.add("w-100");
     weather_section.classList.remove("hidden");
     error_message.classList.add("hidden");
   }
