@@ -18,7 +18,9 @@
       class="root min-h-screen font-[Google_Sans] bg-linear-to-b from-[#2ee6d6] via-[#1fcfc3] to-[#bdcfd5]"
     >
       <nav class="navigation">
-        <a href=""><img src="../images/sun.png" class="w-10" alt="" /></a>
+        <a href="./index.html"
+          ><img src="../images/sun.png" class="w-10" alt=""
+        /></a>
       </nav>
       <div class="wrapper flex justify-center items-center">
         <div
@@ -28,12 +30,17 @@
             type="search"
             class="bg-[#4A4A4A] md:w-110 md:py-2 md:rounded-3xl hover:bg-white hover:text-black focus:outline-none mt-3 text-white py-1 px-4 rounded-2xl"
             name=""
-            id=""
+            id="weather_input"
             placeholder="Enter City"
           />
           <div id="weather_section" class="weather">
-            <div class="md:flex md:mt-5 md:gap-20">
-              <h1 class="text-9xl md:text-[200px] mt-8 md:mt-10">29°</h1>
+            <div id="weather_information" class="md:flex md:mt-5 md:gap-20">
+              <h1
+                id="temperature"
+                class="text-9xl md:text-[200px] mt-8 md:mt-10"
+              >
+                29°
+              </h1>
 
               <img src="../images/cloudy.png" class="w-50 md:w-70" alt="" />
             </div>
@@ -61,5 +68,6 @@
         </div>
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>
