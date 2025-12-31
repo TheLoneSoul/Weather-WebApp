@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const weather_section = document.getElementById("weather_section");
   const input = document.getElementById("weather_input");
   const weather_info = document.getElementById("weather_information");
-  const weather_description = document.getElementById("weather_description");
+  const temperature = document.getElementById("temperature");
+  const city_name = document.getElementById("city_name");
+  const weather_condition = document.getElementById("weather_condition");
   const error_message = document.getElementById("error_message");
 
   const API_KEY = "3c9c7f1c48ceac45e8186a1d79b3062e";
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const weatherResponse = await fetchWeatherData(text);
         displayWeatherData(weatherResponse);
+        input.value = "";
       } catch (error) {
         displayError(error);
       }
@@ -32,10 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayWeatherData(data) {
-    // Display the data
+    const { name, main, weather } = data;
+    temperature.textContent = `${Math.round(main.temp)}°`;
+    city_name.textContent = name.toUpperCase();
+    weather_condition.textContent = weather[0].description;
+    weather_section.classList.remove("hidden");
+    error_message.classList.add("hidden");
   }
 
   function displayError(e) {
-    console.error("Error: ", e);
+    error_message.classList.remove("hidden");
+    weather_section.classList.add("hidden");
   }
 });
