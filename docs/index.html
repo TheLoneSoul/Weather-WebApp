@@ -4,10 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="shortcut icon" href="./favicon.png" type="image/png" />
     <link rel="stylesheet" href="../docs/output.css" />
   </head>
-  <body>
-    a
+  <body class="">
+    <div
+      class="root min-h-screen font-[Google_Sans] bg-linear-to-b from-[#2ee6d6] via-[#1fcfc3] to-[#bdcfd5]"
+    >
+      <nav class="navigation">
+        <a href=""><img src="../images/sun.png" class="w-10" alt="" /></a>
+      </nav>
+      <div class="wrapper flex justify-center items-center">
+        <div
+          class="content duration-300 mt-30 text-center py-4 px-12 flex flex-col items-center"
+        >
+          <input
+            type="search"
+            class="bg-[#4A4A4A] md:w-110 md:py-2 md:rounded-3xl hover:bg-white hover:text-black focus:outline-none mt-3 text-white py-1 px-4 rounded-2xl"
+            name=""
+            id=""
+            placeholder="Enter City"
+          />
+          <div id="weather_section" class="weather">
+            <div class="md:flex md:mt-5 md:gap-20">
+              <h1 class="text-9xl md:text-[200px] mt-8 md:mt-10">29°</h1>
+
+              <img src="../images/cloudy.png" class="w-50 md:w-70" alt="" />
+            </div>
+            <div id="weather_description" class="mt-5">
+              <p
+                id="city_name"
+                class="pt-1 font-bold text-sm md:text-2xl mt-12"
+              >
+                SAIGON
+              </p>
+              <h1
+                id="weather_condition"
+                class="text-3xl md:text-5xl font-bold mt-5"
+              >
+                Cloudy Haze
+              </h1>
+            </div>
+          </div>
+
+          <div id="error_message" class="mt-8 hidden">
+            <h1 class="text-2xl text-red-500">
+              City not found. Please try again.
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
