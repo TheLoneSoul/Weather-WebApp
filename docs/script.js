@@ -13,15 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!text) return;
       try {
         const weatherResponse = await fetchWeatherData(text);
-        console.log(weatherResponse);
-      } catch (error) {}
+        displayWeatherData(weatherResponse);
+      } catch (error) {
+        displayError(error);
+      }
     }
   });
 
   async function fetchWeatherData(data) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${data}&units=metric&appid=${API_KEY}`;
-    const weather_data = await fetch(url);
-    const final_data = weather_data.json();
+    const weather_response = await fetch(url);
+
+    if (!weather_response.ok) {
+      throw new Error("City not found. Please try again.");
+    }
+    const final_data = weather_response.json();
     return final_data;
   }
 
@@ -30,6 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayError(e) {
-    // Display the error
+    console.error("Error: ", e);
   }
 });
