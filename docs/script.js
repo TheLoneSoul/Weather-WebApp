@@ -39,6 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     temperature.textContent = `${Math.round(main.temp)}°`;
     city_name.textContent = name.toUpperCase();
     weather_condition.textContent = weather[0].description;
+    console.log(data);
+    const image = weather[0].icon;
+    const img = weather_info.querySelector("img");
+    img.src = `https://openweathermap.org/img/wn/${image}@2x.png`;
     weather_section.classList.remove("hidden");
     error_message.classList.add("hidden");
   }
